@@ -67,12 +67,16 @@ app.get('/menu', (req, res) => {
 
 app.get('/menu/:category', (req, res) => {
   const menuItems = RESTAURANT.menu.filter(item => item.category === req.params.category)
-    res.render('category.ejs', {
-   menuItems,
-    });
-    
+    res.render('category.ejs', { 
+   menuItems, 
    
+    });
+    console.log(menuItems.id)
+
+    
+    
 });
+
 
 
 
