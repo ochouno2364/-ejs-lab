@@ -67,9 +67,11 @@ app.get('/menu', (req, res) => {
 
 app.get('/menu/:category', (req, res) => {
   const menuItems = RESTAURANT.menu.filter(item => item.category === req.params.category)
-    res.render('category.ejs', { 
+  const category = req.params.category
+  res.render('category.ejs', { 
    menuItems, 
-   
+   category,
+  
     });
     console.log(menuItems.id)
 
@@ -80,7 +82,9 @@ app.get('/menu/:category', (req, res) => {
 
 
 
-app.listen(3000);
+app.listen(3001, ()=> {
+  console.log('Listening on port 3000');
+});
 
 // app.get('/menu/mains', (req, res) => {
 //   res.render('mains.ejs', {
